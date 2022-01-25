@@ -877,7 +877,7 @@
                 
             </div>`;
         } else {
-            return `<div class="${hasLoad % 2 == 0 ? "black" : "white"}">
+            return `<div class="${hasLoad % 2 == 0 ? "black" : "white"}" onclick='popup("错误: 服务器离线",1000)'>
                 <div class="latency" style="color:${latencyColor[3]};">-1ms</div>
                 <div><img src="./${type == "java" ? "java.png" : "bedrock.webp"}" class="serverTypeImg"><span
                         class="serverWrongTitle">${title}</span><img
