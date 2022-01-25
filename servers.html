@@ -877,7 +877,7 @@
                 
             </div>`;
         } else {
-            return `<div class="${hasLoad % 2 == 0 ? "black" : "white"}" onclick='popupInfoWindow("Null( ${ip}:${port} )",-1,-1,"-1","${ip}",${port})'>
+            return `<div class="${hasLoad % 2 == 0 ? "black" : "white"}" onclick='popupInfoWindow("${ip}:${port}",-1,-1,"-1","${ip}",${port})'>
                 <div class="latency" style="text-shadow:1px 1px 10px ${latencyColor[3]};font-weight:500;color:white;">-1ms</div>
                 <div><img src="./${type == "java" ? "java.png" : "bedrock.webp"}" class="serverTypeImg"><span
                         class="serverWrongTitle">${title}</span><img
