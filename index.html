@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- -IceCity website- designed by BluefishV (2022). All rights reserved. -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IceCity-Web</title>
+    <link rel="icon" href="https://wssf2020.github.io/motd/favicon.ico">
+
+</head>
+<style>
+    body {
+        background-color: rgb(249, 253, 253);
+        /* background-color: rgba(221, 235, 233, 0.767); */
+    }
+
+    .topFrame {
+        position: fixed;
+        top: 0;
+        left: 0;
+        margin: 0;
+        box-shadow: 1px 1px 10px rgba(185, 185, 185, 0.637);
+        background-color: rgb(255, 255, 255);
+        width: 100%;
+        height: 45px;
+        z-index: 1;
+    }
+
+    .topFrame>h3 {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        text-align: center;
+        font-size: x-large;
+        left: 0;
+        right: 0;
+        margin-left: 0;
+        margin-right: 0;
+        top: -15px;
+        color: rgba(44, 44, 44, 0.822);
+        position: absolute;
+    }
+
+    .serverUptime {
+        top: 70px;
+        position: relative;
+        left: 0;
+        width: 100%;
+        height: 40px;
+        /* background-color: rgb(252, 252, 252); */
+        background-color: rgb(245, 245, 245);
+        /* background-image: linear-gradient(225deg, rgba(220, 193, 255, 0.952),rgba(193, 200, 255, 0.884)); */
+        /* background-image: url("http://81.68.88.42:37729/getResources?name=white.jpg"); */
+        /* border-left: 2px solid rgb(203, 153, 250);
+        border-right: 2px solid rgb(203, 153, 250);
+        border-top:2px solid rgb(203, 153, 250); */
+        border: 3px solid rgba(182, 182, 182, 0.822);
+        margin: 0;
+        box-shadow: 3px 5px 10px rgba(119, 119, 119, 0.5);
+        float: left;
+    }
+
+    .tip {
+        bottom: 100%;
+        left: -2px;
+        /* border: 2px solid rgba(151, 150, 150, 0.651); */
+        border-top: 2px solid rgb(146, 205, 253);
+        border-left: 2px solid rgb(157, 211, 255);
+        border-right: 2px solid rgb(181, 221, 253);
+        border-bottom: 2px solid rgba(184, 224, 236, 0.432);
+        width: auto;
+        height: 70%;
+        position: absolute;
+        margin: 0;
+        border-radius: 5px 5px 0 0;
+        background-image: linear-gradient(225deg, rgba(235, 250, 255, 0.877), rgba(240, 239, 255, 0.801));
+    }
+
+    .intro {
+        top: 70px;
+        left: 4%;
+        position: relative;
+        height: auto;
+        width: 92%;
+        /* border: 1px solid red; */
+    }
+
+    .statusA {
+        position: relative;
+        top: 10px;
+        height: 300px;
+        width: 400px;
+        border: 2px solid rgba(180, 180, 180, 0.89);
+        border-radius: 5px;
+        background-color: white;
+        /* display: inline; */
+        float: left;
+    }
+
+    .statusB {
+        position: relative;
+        top: 10px;
+        height: 300px;
+        width: 400px;
+        border: 2px solid rgba(180, 180, 180, 0.89);
+        background-color: white;
+        border-radius: 5px;
+        float: right;
+    }
+
+    .statusA>p {
+        margin-top: 10px;
+        margin-left: 10px;
+        color: rgb(53, 53, 53);
+    }
+
+    .statusB>p {
+        margin-top: 10px;
+        margin-left: 10px;
+        color: rgb(53, 53, 53);
+    }
+
+    .cpuUsage,
+    .ramUsage {
+        height: 20px;
+        left: 10px;
+        width: 360px;
+        border-radius: 15px;
+        position: relative;
+        background-color: white;
+        border: 2px solid rgb(190, 190, 190);
+        overflow: hidden;
+    }
+
+    .cpuProgressBar,
+    .ramProgressBar {
+        transition-duration: 1s;
+        transition-timing-function: ease-out;
+        left: 0;
+        top: 0;
+        position: absolute;
+        height: 100%;
+        width: 5%;
+        background-color: rgb(71, 172, 255);
+    }
+
+    .jumpTo {
+        position: absolute;
+        right: 2px;
+        width: 90px;
+        top: 5%;
+        height: 80%;
+        /* border: 1px solid red; */
+        cursor: pointer;
+    }
+
+    .more:hover {
+        color: rgb(245, 245, 245);
+        text-shadow: 1px 1px 10px rgb(43, 43, 43);
+    }
+
+    .more {
+        position: absolute;
+        top: 0;
+        right: 0;
+        font-weight: 900;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        font-size: x-large;
+        top: -18px;
+        color: rgb(156, 156, 156);
+        text-shadow: 1px 1px 10px rgba(255, 255, 255, 0);
+        transition-duration: 1s;
+        transition-property: text-shadow;
+    }
+</style>
+
+<body>
+    <div class="topFrame">
+        <h3 id="topFrameText" style="line-height: 1.2;letter-spacing: 0.073em;">IceCity - Survival</h3>
+        <div class="jumpTo">
+            <img src="https://wssf2020.github.io/motd/server3.png" style="position: relative;height: 100%;border-radius: 5px;">
+            <p class="more">More</p>
+        </div>
+    </div>
+
+    <div class="intro">
+        <h2 style="margin: 10px;text-shadow: 1px 1px 4px rgb(94, 94, 94);font-family:'Courier New', Courier, monospace;color: rgb(255, 255, 255);"
+            id="announcementTitle">
+            IceCity：公告</h2>
+        <div style="width: 100%;background-color: rgba(187, 187, 187, 0.705);height: 2px;"></div>
+        <p style="margin: 10px;color: rgb(80, 80, 80);font-size: larger;">欢迎来到&lt;冰霜城镇&银色羽毛&gt;官方网站，点击左上角可开启菜单</p>
+        <p style="margin: 10px;color: rgb(80, 80, 80);font-size: larger;">*服务器版本已于2021-12-04更新为1.18.0，请注意及时更新您的游戏版本！</p>
+        <div class="statusA">
+            <p style="font-size: xx-large;margin-bottom: 10px;">服务器信息<img src="./switch.png"
+                    style="height: 100%;top: 6px;position: relative;left: 10px;transition-duration: 2s;transition-timing-function: linear;cursor: pointer;transform: rotate(0deg);"
+                    id="change">
+            <p style="position: absolute;right: 20px;top: 10px;" id="latency">0ms</p>
+            <p style="font-size: larger;" id="title">IceCity</p>
+            <p style="font-size: larger;" id="address">地址：43.249.193.167:43618</p>
+            <p style="font-size: larger;" id="player">玩家：-1 / 30</p>
+            <p style="font-size: larger;" id="version">版本：-1</p>
+            <p style="font-size: larger;" id="mode">模式：生存模式</p>
+        </div>
+        <div class="statusB">
+            <p style="font-size: xx-large;margin-bottom: 10px;">服务器状态</p>
+            <div style="height: 20px;width: 20px;left: 10px;top: 5px;margin: 0 0 20px 0;background-color: orange;border-radius: 50%;position: relative;"
+                id="statBall">
+                <p style="position: absolute;left: 26px;top: -16px;font-size: large;" id="statMsg">Loading...</p>
+            </div>
+            <p style="font-size: larger;">处理器利用率：</p>
+            <div class="cpuUsage">
+                <div class="cpuProgressBar"></div>
+            </div>
+            <p style="font-size: larger;">内存利用率：</p>
+            <div class="ramUsage">
+                <div class="ramProgressBar"></div>
+            </div>
+        </div>
+        <div class="serverUptime">
+            <div class="tip">
+                <h3 style="top: 0;bottom: 0;margin: 0 10px 0 7px;color: rgba(24, 24, 24, 0.781);">服务器已累计运行：</h3>
+            </div>
+            <h3 style="text-align: center;top: 0;bottom: 0;margin: 0 auto 0 auto;font-size: xx-large;color: rgb(255, 255, 255);text-shadow: 1px 1px 5px rgb(102, 150, 255);"
+                id="uptime">0 年 11 月 26 天 -- 12 小时 24 分 10.308 秒</h3>
+            <p style="height: 10px;"></p>
+        </div>
+    </div>
+    <!-- <p style="color: rgb(255, 175, 71);"></p> -->
+</body>
+
+<p style="color: rgba(71, 71, 71, 0.829);"></p>
+<script src="https://43.249.192.204:45000/getResources?name=getter.js"></script>
+<script src="https://43.249.192.204:45000/getResources?name=popupWindow.js"></script>
+<script>
+    var serverStat = {
+        "online": "rgb(108, 255, 71)",
+        "offline": "tomato",
+        "error": "orange"
+    }
+    var statColors = ["rgb(71, 83, 255)", "rgb(71, 187, 255)", "rgb(71, 255, 215)", "rgb(71, 255, 163)", "rgb(71, 255, 102)", "rgb(175, 255, 71)", "rgb(237, 255, 71)", "rgb(255, 181, 71)"];
+    var div = document.getElementsByClassName('topFrame')[0];
+    var cpuProgressBar = document.getElementsByClassName('cpuProgressBar')[0];
+    var ramProgressBar = document.getElementsByClassName('ramProgressBar')[0];
+    var jumpTo = document.getElementsByClassName('jumpTo')[0];
+    var title = document.getElementById('title');
+    var address = document.getElementById('address');
+    var player = document.getElementById('player');
+    var version = document.getElementById('version');
+    var mode = document.getElementById('mode');
+    var statBall = document.getElementById('statBall');
+    var statMsg = document.getElementById('statMsg');
+    var uptime = document.getElementById('uptime');
+    var topFrameText = document.getElementById('topFrameText');
+    var latency = document.getElementById('latency');
+    var change = document.getElementById('change');
+    var announcementTitle = document.getElementById('announcementTitle');
+    var showSilverFeatherStat = false;
+    var canClick = true;
+    var width = div.style.width || div.clientWidth || div.offsetWidth || div.scrollWidth;
+    console.log(width);
+    function formatDuring(mss) {
+        var month = parseInt(mss / (1000 * 60 * 60 * 24 * 30));
+        var days = parseInt(mss % (1000 * 60 * 60 * 24 * 30) / (1000 * 60 * 60 * 24));
+        var hours = parseInt((mss % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = parseInt((mss % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = (mss % (1000 * 60)) / 1000;
+        return parseInt(month/12) + " 年 " + (month/12 >= 1 ? parseInt(month % 12) : month) + " 月 " + days + " 天 -- " + hours + " 小时 " + minutes + " 分 " + seconds + " 秒 ";
+    }
+    var oldTime = (new Date("2021/01/27 7:13:11")).getTime();
+    change.onclick = function switchServer() {
+        if (canClick) {
+            canClick = false;
+            change.style.transitionDuration = "0s";
+            change.style.transform = "rotate(0deg)";
+            setTimeout(() => {
+                change.style.transitionDuration = "2s";
+                change.style.transform = "rotate(360deg)";
+            }, 250);
+            setTimeout(() => {
+                canClick = true;
+            }, 2000);
+            setTimeout(() => {
+                if (showSilverFeatherStat) {
+                    showSilverFeatherStat = false;
+                    popup("成功切换为: IceCity.");
+                    topFrameText.innerHTML = "IceCity - Survival";
+                    announcementTitle.innerHTML = "IceCity：公告";
+                    oldTime = (new Date("2021/01/27 7:13:11")).getTime();
+                } else {
+                    showSilverFeatherStat = true;
+                    popup("成功切换为: SilverFeather.");
+                    topFrameText.innerHTML = "Silver - Feather";
+                    announcementTitle.innerHTML = "SilverFeather：公告";
+                    oldTime = (new Date("2021/06/23 17:20:32")).getTime();
+                }
+            }, 1000);
+
+        }
+    }
+    jumpTo.onclick = function () {
+        popup("正在前往: 服务器列表...", 2000);
+        setTimeout(() => {
+            window.location.href = "./servers";
+        }, 1500);
+    }
+    //var now = Date.now();
+    //var uptime = now - oldTime;
+    setInterval(() => {
+        // if (showSilverFeatherStat) {
+
+        // } else {
+        loadPage(showSilverFeatherStat ? "https://43.249.192.204:45000/silverFeatherStatus" : "https://43.249.192.204:45000/iceCityStatus", function (data) {
+            if (data == "error") {
+                statBall.style.backgroundColor = serverStat.offline;
+                statMsg.innerHTML = "Offline.";
+                player.innerHTML = "玩家：-1";
+                version.innerHTML = "版本：-1";
+                mode.innerHTML = "模式：null";
+                cpuProgressBar.style.width = "1%";
+                ramProgressBar.style.width = "1%";
+
+            } else if (data) {
+                var json = JSON.parse(data);
+                cpuProgressBar.style.width = json.cpuUsage + "%";
+                cpuProgressBar.style.backgroundColor = statColors[parseInt(json.cpuUsage / 10)];
+                ramProgressBar.style.width = json.ramUsage + "%";
+                ramProgressBar.style.backgroundColor = statColors[parseInt(json.ramUsage / 10)];
+                title.innerHTML = json.title;
+                player.innerHTML = "玩家：" + json.player;
+                version.innerHTML = "版本：" + json.version;
+                mode.innerHTML = "模式：" + json.mode;
+                address.innerHTML = "地址：" + json.ip + ":" + json.port;
+                latency.innerHTML = json.latency + "ms";
+                statBall.style.backgroundColor = serverStat.online;
+                statMsg.innerHTML = "Online.";
+            } else {
+                statBall.style.backgroundColor = serverStat.error;
+                statMsg.innerHTML = "Loading...";
+
+            }
+        })
+        // }
+    }, 4000);
+    setInterval(() => {
+        uptime.innerHTML = formatDuring(Date.now() - oldTime);
+    }, 1000);
+</script>
+
+</html>
