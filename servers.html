@@ -586,7 +586,7 @@
     }
     function popupInfoWindow(title, onlinePlayers, maxPlayers, latency, ip, port,websiteurl) {
         moreInfoTitle.innerHTML = title;
-        if(websiteurl){
+        if(websiteurl != "undefined"){
             moreInfoTitle.style.cursor="crosshair";
             moreInfoTitle.style.color="white";
             moreInfoTitle.onclick=function(){
