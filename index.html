@@ -234,7 +234,9 @@
 <script src="https://218.89.171.148:45000/initHttps"></script>
 <script>
     setTimeout(() => {
-        if(!hasAuthHttps){
+        try{
+            hasAuthHttps;
+        }catch(e){
             window.location.href="https://218.89.171.148:45000/";
         }
     }, 1000);
