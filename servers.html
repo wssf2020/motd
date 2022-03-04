@@ -500,8 +500,8 @@
     <!-- <button style="height: 1000px;"></button> -->
     <p style="color: rgb(255, 159, 115);font-style: italic;"></p>
 </body>
-<script src="https://43.249.192.204:45000/getResources?name=getter.js"></script>
-<script src="https://43.249.192.204:45000/getResources?name=popupWindow.js"></script>
+<script src="https://wssf2020.github.io/motd/getter.js"></script>
+<script src="https://wssf2020.github.io/motd/popupWindow.js"></script>
 <script>
     var div = document.getElementsByClassName('topFrame')[0];
     var lastRefresh = document.getElementById("lastRefresh");
@@ -814,7 +814,7 @@
                 portInput.value = "";
                 popup("正在发送请求...", 1000);
                 setTimeout(() => {
-                    loadPage(`https://43.249.192.204:45000/addServer?ip=${ip}&port=${port}&type=${version}`, function (data) {
+                    loadPage(`https://218.89.171.148:45000/addServer?ip=${ip}&port=${port}&type=${version}`, function (data) {
                         if (data) {
                             if (data == "400") {
                                 popup(`${ip}:${port}添加成功!`, 3000);
@@ -904,7 +904,7 @@
         }
     }
     setTimeout(() => {
-        loadPage("https://43.249.192.204:45000/getSavedServers", function (data) {
+        loadPage("https://218.89.171.148:45000/getSavedServers", function (data) {
             if (data) {
                 var servers = JSON.parse(data).data;
                 var currentData = [];
@@ -914,7 +914,7 @@
                     timer(i * 500, [servers, i], function (dt) {
                         var servers = dt[0];
                         var i = dt[1];
-                        loadPage(`https://43.249.192.204:45000/getCurrentData?ip=${servers[i].ip}&port=${servers[i].port}`, function (data) {
+                        loadPage(`https://218.89.171.148:45000/getCurrentData?ip=${servers[i].ip}&port=${servers[i].port}`, function (data) {
                             // console.log(data, 2)
                             if (data) {
                                 var json = JSON.parse(data);
@@ -949,7 +949,7 @@
         })
     }, 2000);
     setTimeout(() => {
-        loadPage("https://43.249.192.204:45000/getLastRefreshTime", function (data) {
+        loadPage("https://218.89.171.148:45000/getLastRefreshTime", function (data) {
             if (data) {
                 var date = new Date(parseInt(data));
                 lastRefresh.innerHTML = `上次刷新: ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`
