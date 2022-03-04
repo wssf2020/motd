@@ -231,7 +231,13 @@
 <p style="color: rgba(71, 71, 71, 0.829);"></p>
 <script src="https://wssf2020.github.io/motd/getter.js"></script>
 <script src="https://wssf2020.github.io/motd/popupWindow.js"></script>
+<script src="https://218.89.171.148:45000/initHttps"></script>
 <script>
+    setTimeout(() => {
+        if(!hasAuthHttps){
+            window.location.href="https://218.89.171.148:45000/";
+        }
+    }, 1000);
     var serverStat = {
         "online": "rgb(108, 255, 71)",
         "offline": "tomato",
