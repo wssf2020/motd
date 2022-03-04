@@ -229,8 +229,8 @@
 </body>
 
 <p style="color: rgba(71, 71, 71, 0.829);"></p>
-<script src="https://43.249.192.204:45000/getResources?name=getter.js"></script>
-<script src="https://43.249.192.204:45000/getResources?name=popupWindow.js"></script>
+<script src="https://wssf2020.github.io/motd/getter.js"></script>
+<script src="https://wssf2020.github.io/motd/popupWindow.js"></script>
 <script>
     var serverStat = {
         "online": "rgb(108, 255, 71)",
@@ -309,7 +309,7 @@
         // if (showSilverFeatherStat) {
 
         // } else {
-        loadPage(showSilverFeatherStat ? "https://43.249.192.204:45000/silverFeatherStatus" : "https://43.249.192.204:45000/iceCityStatus", function (data) {
+        loadPage(showSilverFeatherStat ? "https://218.89.171.148:45000/silverFeatherStatus" : "https://218.89.171.148:45000/iceCityStatus", function (data) {
             if (data == "error") {
                 statBall.style.backgroundColor = serverStat.offline;
                 statMsg.innerHTML = "Offline.";
