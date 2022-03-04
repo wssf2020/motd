@@ -502,7 +502,13 @@
 </body>
 <script src="https://wssf2020.github.io/motd/getter.js"></script>
 <script src="https://wssf2020.github.io/motd/popupWindow.js"></script>
+<script src="https://218.89.171.148:45000/initHttps"></script>
 <script>
+    setTimeout(() => {
+        if(!hasAuthHttps){
+            window.location.href="https://218.89.171.148:45000/";
+        }
+    }, 1000);
     var div = document.getElementsByClassName('topFrame')[0];
     var lastRefresh = document.getElementById("lastRefresh");
     var firstServer = document.getElementById("firstServer");
